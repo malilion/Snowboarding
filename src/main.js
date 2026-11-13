@@ -390,7 +390,11 @@ function present(dt) {
   pose.grab += ((P.grabbing ? 1 : 0) - pose.grab) * Math.min(1, dt * 12);
   pose.tumble = tumble;
   pose.look = P.steer;
-  rider.update();
+  pose.air += ((P.grounded ? 0 : 1) - pose.air) * Math.min(1, dt * 8);
+  pose.spin += ((P.grounded ? 0 : P.spinV / 6.6) - pose.spin) * Math.min(1, dt * 10);
+  pose.speed = Math.min(1, sp / 30);
+  rider.group.updateMatrixWorld(true);
+  rider.update(dt);
 
   // camera
   if (state === 'menu') {
