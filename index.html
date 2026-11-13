@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>粉雪狂飆 POWDER RUSH</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hidden">
+      <div class="top">
+        <div class="stat"><span class="label">分數</span><span id="score" class="value">0</span></div>
+        <div class="stat center"><span id="time" class="value">0:00.0</span>
+          <div class="progress"><div id="progress"></div></div>
+        </div>
+        <div class="stat right"><span class="label">連段</span><span id="combo" class="value">×1</span></div>
+      </div>
+      <div id="popup"></div>
+      <div id="live"></div>
+      <div class="speed"><span id="speed">0</span><small>km/h</small></div>
+      <div id="charge"><div></div></div>
+    </div>
+
+    <div id="touch" class="hidden">
+      <div class="pad left">
+        <button data-k="ArrowLeft">◀</button>
+        <button data-k="ArrowRight">▶</button>
+      </div>
+      <div class="pad right">
+        <button data-k="ArrowUp">▲</button>
+        <button data-k="ArrowDown">▼</button>
+        <button data-k="ShiftLeft">抓</button>
+        <button data-k="Space" class="big">跳</button>
+      </div>
+    </div>
+
+    <div id="menu" class="overlay">
+      <div class="panel">
+        <p class="eyebrow">3D SNOWBOARD ACTION</p>
+        <h1>粉雪狂飆<span>POWDER RUSH</span></h1>
+        <p class="lead">從 3,200 公尺的山頂一路衝到終點。飛越跳台、轉體空翻、穿過旗門，拿下最高分。</p>
+        <div class="keys">
+          <div><kbd>A</kbd><kbd>D</kbd> / <kbd>←</kbd><kbd>→</kbd><em>轉彎・空中轉體</em></div>
+          <div><kbd>W</kbd> / <kbd>↑</kbd><em>蹲低加速・空中前空翻</em></div>
+          <div><kbd>S</kbd> / <kbd>↓</kbd><em>煞車・空中後空翻</em></div>
+          <div><kbd>Space</kbd><em>按住蓄力，放開起跳</em></div>
+          <div><kbd>Shift</kbd><em>空中抓板</em></div>
+          <div><kbd>R</kbd> 重來　<kbd>P</kbd> 暫停　<kbd>M</kbd> 靜音</div>
+        </div>
+        <button id="start" class="cta">開始滑行</button>
+        <p id="best" class="best"></p>
+      </div>
+    </div>
+
+    <div id="result" class="overlay hidden">
+      <div class="panel">
+        <p class="eyebrow">FINISH</p>
+        <h1 id="rTitle">抵達終點！</h1>
+        <table>
+          <tr><td>花式與旗門</td><td id="rTrick">0</td></tr>
+          <tr><td>時間 <span id="rTime"></span></td><td id="rBonus">0</td></tr>
+          <tr><td>最佳花式</td><td id="rBestTrick">—</td></tr>
+          <tr class="total"><td>總分</td><td id="rTotal">0</td></tr>
+        </table>
+        <p id="rBest" class="best"></p>
+        <button id="again" class="cta">再滑一次</button>
+      </div>
+    </div>
+
+    <div id="pause" class="overlay hidden"><div class="panel"><h1>暫停</h1><p class="lead">按 <kbd>P</kbd> 繼續</p></div></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
