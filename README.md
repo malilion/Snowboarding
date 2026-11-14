@@ -6,6 +6,12 @@
 
 **線上遊玩：** https://malilion.github.io/Snowboarding/
 
+## 宣傳影片
+
+[![觀看宣傳影片](docs/promo-poster.jpg)](https://malilion.github.io/Snowboarding/promo.mp4)
+
+▶ [觀看 28 秒宣傳影片](https://malilion.github.io/Snowboarding/promo.mp4)（以遊戲畫面為起始影格，用 Google Flow 的 Veo 3.1 生成）
+
 ## 特色
 
 - **一條完整的下坡賽道**：3,200 公尺蜿蜒雪道，18 個跳台、旗門、樹木與岩石
@@ -66,4 +72,4 @@ Three.js + Vite，沒有使用物理引擎或外部音效檔。
 - `src/effects.js`：雪霧、板痕、飄雪
 - `src/audio.js`：WebAudio 程序化音效
 
-滑雪者模型（`public/models/rider.glb`）以 Hyper3D Rodin 生成。
+滑雪者模型（`public/models/rider.glb`）以 Hyper3D Rodin 生成並綁定骨架，姿勢由程式即時驅動。宣傳影片以 Google Flow 生成。
