@@ -23,6 +23,29 @@ export class GameAudio {
     };
     this.wind = loop('bandpass', 500, 0.6);
     this.carve = loop('highpass', 2500, 0.5);
+    this.loadMusic();
+  }
+
+  // Looping background track (public/music.mp3). Missing file = silent, game still works.
+  async loadMusic() {
+    try {
+      const res = await fetch(import.meta.env.BASE_URL + 'music.mp3');
+      if (!res.ok) return;
+      const buf = await this.ctx.decodeAudioData(await res.arrayBuffer());
+      const src = this.ctx.createBufferSource();
+      src.buffer = buf; src.loop = true;
+      this.music = this.ctx.createGain();
+      this.music.gain.value = 0;
+      src.connect(this.music).connect(this.master);
+      src.start();
+      this.setMusic(this.musicLevel ?? 1);
+    } catch { /* no music */ }
+  }
+
+  // level 0..1: 1 while riding, lower on menus / pause
+  setMusic(level) {
+    this.musicLevel = level;
+    if (this.music) this.music.gain.setTargetAtTime(0.32 * level, this.ctx.currentTime, 0.4);
   }
 
   setMuted(m) { this.muted = m; if (this.master) this.master.gain.value = m ? 0 : 0.7; }

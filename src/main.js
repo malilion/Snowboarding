@@ -139,6 +139,7 @@ function resetPlayer() {
 
 function startRun() {
   audio.start();
+  audio.setMusic(1);
   resetPlayer();
   P.v.set(0, 0, -4);
   state = 'run';
@@ -149,6 +150,7 @@ function startRun() {
 }
 function togglePause() {
   state = state === 'pause' ? 'run' : 'pause';
+  audio.setMusic(state === 'pause' ? 0.3 : 1);
   $('pause').classList.toggle('hidden', state !== 'pause');
 }
 
@@ -351,6 +353,7 @@ function showResult() {
   $('rTotal').textContent = fmt(total);
   $('rBest').textContent = total > prev ? '新紀錄！' : `最高紀錄 ${fmt(prev)}`;
   if (total > prev) try { localStorage.setItem(BEST_KEY, total); } catch {}
+  audio.setMusic(0.5);
   $('result').classList.remove('hidden');
   $('hud').classList.add('hidden'); $('touch').classList.add('hidden');
 }

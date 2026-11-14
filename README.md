@@ -72,4 +72,4 @@ Three.js + Vite，沒有使用物理引擎或外部音效檔。
 - `src/effects.js`：雪霧、板痕、飄雪
 - `src/audio.js`：WebAudio 程序化音效
 
-滑雪者模型（`public/models/rider.glb`）以 Hyper3D Rodin 生成並綁定骨架，姿勢由程式即時驅動。宣傳影片以 Google Flow 生成。
+滑雪者模型（`public/models/rider.glb`）以 Hyper3D Rodin 生成並綁定骨架，姿勢由程式即時驅動。宣傳影片以 Google Flow 生成，背景音樂〈Powder Rush〉以 Google Flow Music 生成。
